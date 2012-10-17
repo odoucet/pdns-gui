@@ -133,7 +133,7 @@ Ext.ux.RecordsGrid = function(cfg){
         id: 'delete',
         header: '',
         dataIndex: 'id',
-        width: 24,
+        width: 26,
         fixed: true,
         renderer: function(v){
           return '<?php echo image_tag('bin.gif') ?>';
