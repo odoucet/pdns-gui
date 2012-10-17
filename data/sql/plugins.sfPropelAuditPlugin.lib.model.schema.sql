@@ -22,7 +22,7 @@ CREATE TABLE `audit`
 	`type` VARCHAR(255),
 	`created_at` DATETIME,
 	PRIMARY KEY (`id`)
-)Type=MyISAM;
+)engine=MyISAM;
 
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
