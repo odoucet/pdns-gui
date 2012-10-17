@@ -1,0 +1,46 @@
+sfErrorHandler plugin (for Symfony 1.0, Symfony 1.1 and Symfony 1.2)
+=======================================
+
+The `sfErrorHandlerPlugin` aims to solve the infamous Symfony white screen of death. It also features an error handler that converts PHP errors to sfLegacyErrorExceptions, so that they can be caught within your code, and dealt with appropriately. This should both greatly reduce time spent debugging Symfony applications during development, and make Symfony applications appear more robust in production.
+
+
+Installation
+------------
+
+  * Install the plugin
+
+         $ symfony plugin:install sfErrorHandlerPlugin
+
+  * Enable the plugin in your settings.yml
+
+         all:
+          .settings:
+            enabled_modules:       [default, sfErrorHandler, ...]
+
+
+  * **optional** If you don't already have an `error500.php` in `/web/errors` then either copy the one in `sfErrorHandlerPlugin/errors` or create your own. The error page to use is decided from a cascade, the first error page found (in this order) will be used : `apps/<app>/config/error_500.php`, `web/errors/error500.php`, `config/error_500.php`, `plugins/sfErrorHandlerPlugin/errors/error500.php` 
+
+         $ cp plugins/sfErrorHandlerPlugin/errors/error500.php web/errors/
+
+  * Clear your cache
+
+         $ symfony cc
+
+## Usage ##
+
+You can check that the plugin is correctly installed by using your dev controller. If you select the 'Logs and Messages' option, you should see that there is now a log entry for `sfHardenedRenderingFilter` (or `sfHardenedRenderingFilterCompat` on Symfony 1.0) where there was once a log entry for `sfRenderingFilter`.
+
+Now, whenever an error occurs that would previously have caused a white screen you should observe the following behaviour:
+
+
+   * Using a controller with debugging disabled, you'll get served your `web/errors/error500.php`
+
+   * Using a controller with debugging enabled, you'll either receive a stack trace and an `sfLegacyErrorException` OR - for an error that the PHP error handler cannot catch, you'll get a single line containing the error.
+
+## TODO ##
+
+   * find a way to throw an exception from `sf_fatal_error_handler`
+
+## NOTES ##
+
+I've tested this quite extensively by purposefully breaking code, introducing parse errors, instantiating non-existent classes and or using undefined classes, and haven't been able to produce a white screen, but if you are able to do so, please send me details of how I can replicate the problem to lee at php.uk.com and I'll try and fix it :)

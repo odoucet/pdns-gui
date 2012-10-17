@@ -1,0 +1,1 @@
+document.write('<div id="loading-mask" style=""></div><div id="loading"><div class="loading-indicator"><?php echo image_tag('extanim32.gif','width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;"') ?>Please wait...<br/><span id="loading-msg">Loading...</span></div></div>');

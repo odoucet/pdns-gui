@@ -1,0 +1,111 @@
+Setting:
+  LastCommit:
+    name: 'last_commit'
+    value: 0
+  RecordType:
+    name: 'record_type'
+    value: 'a:22:{s:1:"A";i:1;s:4:"AAAA";i:0;s:5:"AFSDB";i:0;s:4:"CERT";i:0;s:5:"CNAME";i:1;s:6:"DNSKEY";i:0;s:2:"DS";i:0;s:5:"HINFO";i:0;s:3:"KEY";i:0;s:3:"LOC";i:0;s:2:"MX";i:1;s:5:"NAPTR";i:1;s:2:"NS";i:1;s:4:"NSEC";i:0;s:3:"PTR";i:1;s:2:"RP";i:0;s:5:"RRSIG";i:0;s:3:"SOA";i:1;s:3:"SPF";i:1;s:5:"SSHFP";i:0;s:3:"SRV";i:1;s:3:"TXT";i:1;}'
+
+Template:
+  Default:
+    name: Default
+    type: MASTER
+
+TemplateRecord:
+  SOA:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         SOA
+    content:      ns5.dnsmadeeasy.com hostmaster.%DOMAIN% %SERIAL%
+    ttl:          86400
+
+  NS1:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         NS
+    content:      ns5.dnsmadeeasy.com
+    ttl:          86400
+
+  NS2:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         NS
+    content:      ns6.dnsmadeeasy.com
+    ttl:          86400
+
+  NS3:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         NS
+    content:      ns7.dnsmadeeasy.com
+    ttl:          86400
+
+  MX1:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         MX
+    content:      aspmx.l.google.com
+    ttl:          86400
+    prio:         0
+
+  MX2:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         MX
+    content:      alt1.aspmx.l.google.com
+    ttl:          86400
+    prio:         10
+
+  MX3:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         MX
+    content:      alt2.aspmx.l.google.com
+    ttl:          86400
+    prio:         10
+
+  MX4:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         MX
+    content:      aspmx2.googlemail.com
+    ttl:          86400
+    prio:         20
+
+  MX5:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         MX
+    content:      aspmx3.googlemail.com
+    ttl:          86400
+    prio:         20
+
+  MX6:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         MX
+    content:      aspmx4.googlemail.com
+    ttl:          86400
+    prio:         20
+
+  MX7:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         MX
+    content:      aspmx5.googlemail.com
+    ttl:          86400
+    prio:         20
+
+  A1:
+    template_id:  Default
+    name:         %DOMAIN%
+    type:         A
+    content:      192.168.0.1
+    ttl:          86400
+
+  A2:
+    template_id:  Default
+    name:         www.%DOMAIN%
+    type:         A
+    content:      192.168.0.1
+    ttl:          86400

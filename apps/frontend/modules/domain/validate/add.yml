@@ -1,0 +1,12 @@
+
+fields:
+  name:
+    required:
+      msg: Name field is required.
+    sfRegexValidator:
+      match:        Yes
+      match_error:  Only letters, numbers, dots, underscore and dash allowed
+      pattern:      /^[a-z0-9\.\-_]+$/i
+
+
+

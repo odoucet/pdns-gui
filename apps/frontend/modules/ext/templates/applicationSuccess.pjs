@@ -1,0 +1,61 @@
+// reference local blank image
+Ext.BLANK_IMAGE_URL = 'extjs/lib/resources/images/default/s.gif';
+
+// load plugins
+<?php include 'plugins.js' ?>
+ 
+// create namespace
+Ext.namespace('pdnsgui');
+ 
+// create application
+pdnsgui.app = function() {
+  // do NOT access DOM from here; elements don't exist yet
+  
+  // private variables
+  <?php echo ext_log('Setting private vars') ?>
+  
+  var viewport;
+  
+  <?php include 'lib/common/Window.js' ?>
+  <?php include 'lib/common/RecordsGrid.js' ?>
+  <?php include 'lib/common/TypeCombo.js' ?>
+  <?php include 'lib/common/SearchField.js' ?>
+  
+  <?php include 'lib/store/Domain.js' ?>
+  <?php include 'lib/store/Template.js' ?>
+  <?php include 'lib/store/RecordType.js' ?>
+  
+  <?php include 'storeLoader.js' ?>
+  
+  <?php include 'lib/panel/North.js' ?>
+  <?php include 'lib/panel/South.js' ?>
+  <?php include 'lib/panel/West.js' ?>
+  <?php include 'lib/panel/Tabs.js' ?>
+  
+  <?php include 'lib/window/AddDomain.js' ?>
+  <?php include 'lib/window/Domain.js' ?>
+  <?php include 'lib/window/Template.js' ?>
+  <?php include 'lib/window/Replace.js' ?>
+  <?php include 'lib/window/History.js' ?>
+  <?php include 'lib/window/RecordType.js' ?>
+
+  // private functions
+
+  // public space
+  return {
+    // public properties, e.g. strings to translate
+    
+    // public methods
+    init: function() {
+      
+      <?php echo ext_log('Running pdnsgui.app.init') ?>
+      
+      Ext.QuickTips.init();
+      
+      <?php include 'viewport.js' ?>
+      
+    } // end of init
+  };
+}(); // end of app
+
+Ext.onReady(pdnsgui.app.init, pdnsgui.app);

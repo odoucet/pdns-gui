@@ -1,0 +1,1 @@
+link ../../domain/templates/listSuccess.php

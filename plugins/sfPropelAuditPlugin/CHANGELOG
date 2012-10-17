@@ -1,0 +1,12 @@
+=== TRUNK ===
+
+* superhaggis: Added CHANGELOG
+* superhaggis: Applied patch from DrCore; see #2275
+* superhaggis: Replaced eregi with preg_match()
+* superhaggis: Fixed coding standards.
+* superhaggis: Rewrote README.
+* superhaggis: Changed SVN layout.
+
+=== 1.0.1 ===
+
+=== 1.0.0 ===

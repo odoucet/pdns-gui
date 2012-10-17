@@ -1,0 +1,3 @@
+# Sqlfile -> Database map
+plugins.sfPropelAuditPlugin.lib.model.schema.sql=propel
+lib.model.schema.sql=propel

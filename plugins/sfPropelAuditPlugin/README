@@ -1,0 +1,60 @@
+= sfPropelAuditPlugin plugin =
+
+The `sfPropelAuditPlugin` is a symfony plugin that provides audit functionality to Propel objects.
+This means that you can keep an audit trail of anything that is happening in your database. For example if you
+want to maintain records of users changing or deleting data in your web application.
+
+Note: This plugin depends on sfGuardPlugin being installed and configured.
+
+== Installation ==
+
+For all installation methods, make sure you have changed directory into your project root.
+
+* Install the plugin from the plugin repository
+{{{
+  symfony plugin-install http://plugins.symfony-project.com/sfPropelAuditPlugin
+}}}
+
+* Install the plugin from a local archive file (where x.y.z is the version number)
+{{{
+  symfony plugin-install sfPropelAuditPlugin-x.y.z.tgz
+}}}
+
+* Install the unstable development version from SVN
+{{{
+  svn checkout http://svn.symfony-project.com/plugins/sfPropelAuditPlugin/trunk ./plugins/sfPropelAuditPlugin
+}}}
+
+* Install a tagged stable release from SVN (example listed applies to version 1.0.0)
+{{{
+  svn export http://svn.symfony-project.com/plugins/sfPropelAuditPlugin/tags/RELEASE_1_0_0 ./plugins/sfPropelAuditPlugin
+}}}
+
+* Enable Propel behavior support in `./config/propel.ini`:
+{{{
+  propel.builder.AddBehaviors = true
+}}}
+
+* Rebuild your model:
+
+{{{
+  symfony propel-build-all
+}}}
+
+* Clear your cache:
+
+{{{
+  symfony cc
+}}}
+
+* Enable the behavior for one of your Propel model:
+{{{
+  // lib/model/Article.php
+  class Article
+  {
+  }
+
+  sfPropelBehavior::add('Article', array('audit'));
+}}}
+
+* You're done!

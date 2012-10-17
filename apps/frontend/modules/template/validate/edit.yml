@@ -1,0 +1,17 @@
+
+fields:
+  id:
+    required:
+      msg: Id field is required.
+
+  name:
+    required:
+      msg: Name field is required.
+
+  type:
+    required:
+      msg: Type field is required.
+    sfStringValidator:
+      values:       [NATIVE, MASTER, SLAVE]
+      values_error: The only accepted values are NATIVE, MASTER and SLAVE.
+      insensitive:  false

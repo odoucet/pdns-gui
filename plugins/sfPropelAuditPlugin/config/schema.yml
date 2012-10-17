@@ -1,0 +1,16 @@
+propel:
+  _attributes:        { package: plugins.sfPropelAuditPlugin.lib.model }
+
+  audit:
+    _attributes:      { phpName: Audit, package: plugins.sfPropelAuditPlugin.lib.model }
+    id:                 { phpName: ID, type: integer, required: true, primaryKey: true, autoincrement: true }
+    remote_ip_address:  varchar(255)
+    object:             varchar(255)
+    object_key:         varchar(255)
+    domain_id:          integer
+    object_changes:     longvarchar
+    query:              longvarchar
+    type:               varchar(255)
+    created_at:
+
+

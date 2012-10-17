@@ -1,0 +1,58 @@
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input
+{ margin: 0; padding: 0; }
+a img,:link img,:visited img { border: none; }
+
+body
+{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 11px;
+  background-color: #fff;
+}
+
+.icon-world {
+  background-image:url(../images/world.gif) !important;
+}
+
+.icon-cog {
+  background-image:url(../images/cog.gif) !important;
+}
+
+.icon-add {
+  background-image:url(../images/add.gif) !important;
+}
+
+.icon-brick {
+  background-image:url(../images/brick.gif) !important;
+}
+
+.icon-find {
+  background-image:url(../images/find.gif) !important;
+}
+
+.icon-book_open {
+  background-image:url(../images/book_open.gif) !important;
+}
+
+.icon-server_connect {
+  background-image:url(../images/server_connect.gif) !important;
+}
+
+.icon-wrench {
+  background-image:url(../images/wrench.gif) !important;
+}
+
+.icon-bin {
+  background-image:url(../images/bin.gif) !important;
+}
+
+.x-grid3-col-delete{
+  cursor: pointer;
+  padding: 0px;
+  padding-top: 2px;
+}
+
+.x-grid3-col-domain{
+  cursor: pointer;
+}

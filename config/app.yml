@@ -1,0 +1,52 @@
+all:
+  default:
+    also-notify: [ ]
+    ttl: 3600
+
+  record:
+    type:
+    
+      A: "The A record contains an IP address. It is stored as a decimal dotted quad string, for example: '213.244.168.210'."
+      
+      AAAA: "The AAAA record contains an IPv6 address. An example: '3ffe:8114:2000:bf0::1'."
+      
+      AFSDB: "Specialised record type for the 'Andrew Filesystem'. Stored as: '#subtype hostname', where subtype is a number. "
+      
+      CERT: "Specialised record type for storing certificates, defined in RFC 2538."
+      
+      CNAME: "The CNAME record specifies the canonical name of a record. It is stored plainly. Like all other records, it is not terminated by a dot. A sample might be 'webserver-01.yourcompany.com'."
+      
+      DNSKEY: "The DNSKEY DNSSEC record type is fully supported, as described in RFC 3757. Note that while PowerDNS can store, retrieve and serve DNSSEC records, no further DNSSEC processing is performed."
+      
+      DS: "The DS DNSSEC record type is fully supported, as described in RFC 3757. Note that while PowerDNS can store, retrieve and serve DNSSEC records, no further DNSSEC processing is performed."
+      
+      HINFO: "Hardware Info record, used to specify CPU and operating system. Stored with a single space separating these two, example: 'i386 Linux'."
+      
+      KEY: "The KEY record is fully supported. For its syntax, see RFC 2535."
+      
+      LOC: "The LOC record is fully supported. For its syntax, see RFC 1876. A sample content would be: '51 56 0.123 N 5 54 0.000 E 4.00m 1.00m 10000.00m 10.00m'"
+      
+      MX: "The MX record specifies a mail exchanger host for a domain. Each mail exchanger also has a priority or preference. This should be specified in the separate field dedicated for that purpose, often called 'prio'."
+      
+      NAPTR: "Naming Authority Pointer, RFC 2915."
+      
+      NS: "Nameserver record. Specifies nameservers for a domain."
+      
+      NSEC: "The NSEC DNSSEC record type is fully supported, as described in RFC 3757."
+      
+      PTR: "Reverse pointer, used to specify the host name belonging to an IP or IPv6 address."
+      
+      RP: "Responsible Person record, as described in RFC 1183. Stored with a single space between the mailbox name and the more-information pointer."
+      
+      RRSIG: "The RRSIG DNSSEC record type is fully supported, as described in RFC 3757."
+      
+      SOA: "The Start of Authority record is one of the most complex available. It specifies a lot about a domain: the name of the master nameserver ('the primary'), the hostmaster and a set of numbers indicating how the data in this domain expires and how often it needs to be checked. Further more, it contains a serial number which should rise on each change of the domain."
+      
+      SPF: "SPF records can be used to store Sender Permitted From details."
+      
+      SSHFP: "The SSHFP record type, used for storing Secure Shell (SSH) fingerprints, is fully supported."
+      
+      SRV: "SRV records can be used to encode the location and port of services on a domain name. When encoding, the priority field is used to encode the priority."
+      
+      TXT: "The TXT field can be used to attach textual data to a domain. Text is stored plainly."
+      

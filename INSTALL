@@ -1,0 +1,4 @@
+To install PowerDNS GUI run:
+
+chmod +x batch/install.sh
+./batch/install.sh

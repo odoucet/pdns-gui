@@ -1,0 +1,139 @@
+propel: 
+  _attributes: 
+    package: lib.model
+  
+  domains: 
+    _attributes: 
+      idMethod: native
+      phpName: Domain
+    id: 
+      type: INTEGER
+      required: true
+      autoIncrement: true
+      primaryKey: true
+    name: 
+      type: VARCHAR
+      size: 255
+      required: true
+    master: 
+      type: VARCHAR
+      size: 20
+    last_check: 
+      type: INTEGER
+    type: 
+      type: VARCHAR
+      size: 6
+      required: true
+    notified_serial: 
+      type: INTEGER
+    account: 
+      type: VARCHAR
+      size: 40
+    _uniques: 
+      name_index: 
+        - name
+  
+  records: 
+    _attributes: 
+      idMethod: native
+      phpName: Record
+    id: 
+      type: INTEGER
+      required: true
+      autoIncrement: true
+      primaryKey: true
+    domain_id: 
+      type: INTEGER
+      foreignTable: domains
+      foreignReference: id
+    name: 
+      type: VARCHAR
+      size: 255
+    type: 
+      type: VARCHAR
+      size: 6
+    content: 
+      type: VARCHAR
+      size: 255
+    ttl: 
+      type: INTEGER
+    prio: 
+      type: INTEGER
+    change_date: 
+      type: INTEGER
+    _indexes: 
+      rec_name_index: 
+        - name
+      nametype_index: 
+        - name
+        - type
+      domain_id: 
+        - domain_id
+  
+  supermasters:
+    _attributes: 
+      phpName: SuperMaster
+    ip: 
+      type: VARCHAR
+      size: 25
+      required: true
+    nameserver: 
+      type: VARCHAR
+      size: 255
+      required: true
+    account: 
+      type: VARCHAR
+      size: 40
+
+  template: 
+    _attributes:
+      idMethod: native
+      phpName: Template
+    id:
+      type: INTEGER
+      required: true
+      autoIncrement: true
+      primaryKey: true
+    name:
+      type: VARCHAR
+      size: 255
+    type:
+      type: VARCHAR
+      size: 45
+
+  template_record: 
+    _attributes: 
+      idMethod: native
+      phpName: TemplateRecord
+    id: 
+      type: INTEGER
+      required: true
+      autoIncrement: true
+      primaryKey: true
+    template_id: 
+      type: INTEGER
+      foreignTable: template
+      foreignReference: id
+    name: 
+      type: VARCHAR
+      size: 255
+    type: 
+      type: VARCHAR
+      size: 6
+    content: 
+      type: VARCHAR
+      size: 255
+    ttl: 
+      type: INTEGER
+    prio: 
+      type: INTEGER
+      default: NULL
+
+  setting:
+    name:
+      required: true
+      primaryKey: true
+      type: VARCHAR
+      size: 255
+    value:
+      type: LONGVARCHAR
