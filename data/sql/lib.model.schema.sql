@@ -21,7 +21,7 @@ CREATE TABLE `domains`
 	`account` VARCHAR(40),
 	PRIMARY KEY (`id`),
 	UNIQUE KEY `name_index` (`name`)
-)Type=MyISAM;
+)engine=MyISAM;
 
 #-----------------------------------------------------------------------------
 #-- records
@@ -47,7 +47,7 @@ CREATE TABLE `records`
 	CONSTRAINT `records_FK_1`
 		FOREIGN KEY (`domain_id`)
 		REFERENCES `domains` (`id`)
-)Type=MyISAM;
+)Engine=MyISAM;
 
 #-----------------------------------------------------------------------------
 #-- supermasters
@@ -63,7 +63,7 @@ CREATE TABLE `supermasters`
 	`account` VARCHAR(40),
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (`id`)
-)Type=MyISAM;
+)Engine=MyISAM;
 
 #-----------------------------------------------------------------------------
 #-- template
@@ -78,7 +78,7 @@ CREATE TABLE `template`
 	`name` VARCHAR(255),
 	`type` VARCHAR(45),
 	PRIMARY KEY (`id`)
-)Type=MyISAM;
+)Engine=MyISAM;
 
 #-----------------------------------------------------------------------------
 #-- template_record
@@ -101,7 +101,7 @@ CREATE TABLE `template_record`
 	CONSTRAINT `template_record_FK_1`
 		FOREIGN KEY (`template_id`)
 		REFERENCES `template` (`id`)
-)Type=MyISAM;
+)Engine=MyISAM;
 
 #-----------------------------------------------------------------------------
 #-- setting
@@ -115,7 +115,7 @@ CREATE TABLE `setting`
 	`name` VARCHAR(255)  NOT NULL,
 	`value` TEXT,
 	PRIMARY KEY (`name`)
-)Type=MyISAM;
+)Engine=MyISAM;
 
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
