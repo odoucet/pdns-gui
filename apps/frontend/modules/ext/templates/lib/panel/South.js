@@ -6,7 +6,7 @@ var SouthRegion = {
   border: false,
   items: [{ 
     border: false,
-    html: '<span style="color: gray;">Copyright &copy; 2009 - </span> <a href="http://level7systems.co.uk" target="_blank" style="color: gray;">Level 7 Systems Ltd.</a>',
+    html: '<span style="color: gray;">Original source code by Level 7 Systems Ltd. Forked and patched by O. Doucet on <a href="https://github.com/odoucet/pdns-gui" target="_blank" style="color: gray;"> GitHub</a></span>',
     style: 'margin-top: 5px;'
   }]
 };

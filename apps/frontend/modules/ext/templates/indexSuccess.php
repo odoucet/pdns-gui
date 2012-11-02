@@ -5,6 +5,7 @@ Web based GUI which aids in administering domains and records for the PowerDNS n
 </p>
 
 <p>Copyright &copy; 2009 - <?php echo link_to('Level 7 Systems Ltd.','http://level7systems.co.uk') ?></p>
+<p>Forked and patched by O. Doucet on <?php echo link_to('GitHub.', 'https://github.com/odoucet/pdns-gui') ?></p>
 
 <?php if (SF_ENVIRONMENT == 'dev') : ?>
   <?php echo javascript_include_tag('/frontend_dev.php/js/ext/loading.pjs') ?>
