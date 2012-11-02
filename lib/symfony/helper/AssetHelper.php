@@ -16,7 +16,7 @@
  * @subpackage helper
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
  * @author     David Heinemeier Hansson
- * @version    SVN: $Id: AssetHelper.php 3775 2007-04-13 07:08:08Z fabien $
+ * @version    SVN: $Id: AssetHelper.php 23543 2009-11-03 08:19:42Z fabien $
  */
 
 /**
@@ -281,7 +281,7 @@ function image_tag($source, $options = array())
 
   if (isset($options['size']))
   {
-    list($options['width'], $options['height']) = split('x', $options['size'], 2);
+    list($options['width'], $options['height']) = explode('x', $options['size'], 2);
     unset($options['size']);
   }
 
@@ -364,7 +364,7 @@ function include_metas()
  *    => <meta http-equiv="content-type" content="text/html; charset=utf-8" />
  * </code>
  *
- * <b>Note:</b> Modify the sfResponse object or the view.yml to change, add or remove metas.
+ * <b>Note:</b> Modify the sfResponse object or the view.yml to change, add or remove HTTP metas.
  *
  * @return string XHTML compliant <meta> tag(s)
  * @see    include_metas 

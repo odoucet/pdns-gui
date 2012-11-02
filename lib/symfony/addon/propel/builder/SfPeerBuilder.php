@@ -14,7 +14,7 @@ require_once 'propel/engine/builder/om/php5/PHP5ComplexPeerBuilder.php';
  * @package    symfony
  * @subpackage addon
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: SfPeerBuilder.php 2534 2006-10-26 17:13:50Z fabien $
+ * @version    SVN: $Id: SfPeerBuilder.php 17357 2009-04-16 11:46:01Z FabianLange $
  */
 class SfPeerBuilder extends PHP5ComplexPeerBuilder
 {
@@ -96,6 +96,8 @@ class SfPeerBuilder extends PHP5ComplexPeerBuilder
    */
   public static function doSelectWithI18n(Criteria \$c, \$culture = null, \$con = null)
   {
+    // we're going to modify criteria, so copy it first
+    \$c = clone \$c;
     if (\$culture === null)
     {
       \$culture = sfContext::getInstance()->getUser()->getCulture();
@@ -186,72 +188,9 @@ class SfPeerBuilder extends PHP5ComplexPeerBuilder
     {
       $mixer_script = "
 
-    foreach (sfMixer::getCallables('{$this->getClassname()}:doSelectRS:doSelectRS') as \$callable)
+    foreach (sfMixer::getCallables('{$this->getClassname()}:addDoSelectRS:addDoSelectRS') as \$callable)
     {
       call_user_func(\$callable, '{$this->getClassname()}', \$criteria, \$con);
-    }
-
-";
-      $tmp = preg_replace('/{/', '{'.$mixer_script, $tmp, 1);
-    }
-
-    $script .= $tmp;
-  }
-
-  protected function addDoSelectJoin(&$script)
-  {
-    $tmp = '';
-    parent::addDoSelectJoin($tmp);
-
-    if (DataModelBuilder::getBuildProperty('builderAddBehaviors'))
-    {
-      $mixer_script = "
-
-    foreach (sfMixer::getCallables('{$this->getClassname()}:doSelectJoin:doSelectJoin') as \$callable)
-    {
-      call_user_func(\$callable, '{$this->getClassname()}', \$c, \$con);
-    }
-
-";
-      $tmp = preg_replace('/{/', '{'.$mixer_script, $tmp, 1);
-    }
-
-    $script .= $tmp;
-  }
-
-  protected function addDoSelectJoinAll(&$script)
-  {
-    $tmp = '';
-    parent::addDoSelectJoinAll($tmp);
-
-    if (DataModelBuilder::getBuildProperty('builderAddBehaviors'))
-    {
-      $mixer_script = "
-
-    foreach (sfMixer::getCallables('{$this->getClassname()}:doSelectJoinAll:doSelectJoinAll') as \$callable)
-    {
-      call_user_func(\$callable, '{$this->getClassname()}', \$c, \$con);
-    }
-
-";
-      $tmp = preg_replace('/{/', '{'.$mixer_script, $tmp, 1);
-    }
-
-    $script .= $tmp;
-  }
-  
-  protected function addDoSelectJoinAllExcept(&$script)
-  {
-    $tmp = '';
-    parent::addDoSelectJoinAllExcept($tmp);
-
-    if (DataModelBuilder::getBuildProperty('builderAddBehaviors'))
-    {
-      $mixer_script = "
-
-    foreach (sfMixer::getCallables('{$this->getClassname()}:doSelectJoinAllExcept:doSelectJoinAllExcept') as \$callable)
-    {
-      call_user_func(\$callable, '{$this->getClassname()}', \$c, \$con);
     }
 
 ";
