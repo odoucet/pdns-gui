@@ -4,10 +4,7 @@ set:
   arg_separator.output:        |
     &amp;
 
-check:
-
 warn:
   magic_quotes_gpc:            off
   register_globals:            off
   session.auto_start:          off
-
