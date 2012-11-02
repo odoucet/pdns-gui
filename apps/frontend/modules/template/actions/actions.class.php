@@ -282,14 +282,16 @@ class templateActions extends MyActions
       switch ($data['type'])
       {
         case 'SOA':
-          if (!preg_match('/^[a-z0-9\.\-_]+\s[a-z0-9\.\-_]+\s%SERIAL%/',$data['content']))
+          if (!preg_match('/^[a-z0-9\.\-_]+\s[a-z0-9\.\-_]+\s%SERIAL%/',$data['content']) &&
+            !preg_match('/^[a-z0-9\.\-_]+\.%DOMAIN%\s[a-z0-9\-_]+\.%DOMAIN%\s%SERIAL%/',$data['content']))
           {
             $this->getRequest()->setError('record',"Row $i: invalid SOA content.");
             return false;
           }
           break;
         case 'NS':
-          if (!preg_match('/^[a-z0-9\.\-_]+$/',$data['content']))
+          if (!preg_match('/^[a-z0-9\.\-_]+$/',$data['content']) &&
+            !preg_match('/^[a-z0-9\.\-_]+\.%DOMAIN%$/',$data['content']))
           {
             $this->getRequest()->setError('record',"Row $i: invalid NS content.");
             return false;
