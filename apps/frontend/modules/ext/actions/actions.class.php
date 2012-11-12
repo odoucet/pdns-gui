@@ -50,7 +50,8 @@ class extActions extends MyActions
     $this->output = array();
     
     $c = new Criteria();
-    $c->add(AuditPeer::OBJECT, 'Record');
+    // we want domain action too (like deletion)
+    //$c->add(AuditPeer::OBJECT, 'Record');
     $c->addDescendingOrderByColumn(AuditPeer::ID);
     
     if ($search = $this->getRequestParameter('search'))
