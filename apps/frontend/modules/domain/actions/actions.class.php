@@ -160,11 +160,11 @@ class domainActions extends MyActions
         {
           $content = str_replace("%DOMAIN%",$name,$tr->getContent());
           $content = str_replace("%SERIAL%",date("Ymd")."01",$content);
-    	}
-        elseif ($tr->getType() == 'NS' || $tr->getType() == 'MX')
-    	{
-    	  $content = str_replace("%DOMAIN%",$name,$tr->getContent());
-    	}
+    	  }
+        elseif ($tr->getType() == 'NS' || $tr->getType() == 'MX' || $tr->getType() == 'CNAME')
+    	  {
+    	    $content = str_replace("%DOMAIN%",$name,$tr->getContent());
+    	  }
         else
         {
           $content = $tr->getContent();

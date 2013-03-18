@@ -28,6 +28,7 @@ function TemplateWindow()
     id: win_id,
     title: 'Templates',
     width: 450,
+    resizable: true,
     items: Tabs,
     doSubmit: function(){
       
