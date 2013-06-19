@@ -7,7 +7,7 @@ Code was not updated since early 2011, so I decided to fork it and commit bugfix
 
 Source code was released under GNU GPL v2, so this repository will use the same license model.
 
-Special thanks to [Olivier Doucet](https://github.com/odoucet) to fork and bugfixs here.
+Special thanks to [Olivier Doucet](https://github.com/odoucet) to fork, bugfixs and provide the source here in github.
 
 Installation on Ubuntu 12.04 / 12.10
 --------------
@@ -36,7 +36,7 @@ Clone this repository or download this in your server.
 
 Change de owner and group to your web user.
 
-Exampĺe: chown www-data.www-data pdns-gui -Rf
+Example: ``` chown www-data.www-data pdns-gui -Rf ```
 
 Into batch folder, add execution permission to install.sh. 
 
@@ -64,3 +64,26 @@ www-data ALL=NOPASSWD: /usr/bin/pdns_control
 ```
 
 Run in your web browser with a IP or vhost and be happy.
+
+Bônus!!!
+--------------
+"Hey guy, i don't use apache, I prefer lighttpd". No problem, i prefer too, use this conf in your lighttpd.conf or in your vhost.conf
+```bash
+$HTTP["host"] =~ "(^|\.)subdomain.yourhost.com$" {
+    server.document-root = "/folder1/folder2/folder3/pdns-gui/web/"
+	alias.url = ( "/sf" => "/folder1/folder2/folder3/pdns-gui/web/sf" )
+	url.rewrite-once = (
+		"^/(extjs|images|css)(.*)" => "$0",
+		"^/(.*)" => "/index.php/$1",
+		"^/$" => "/index.php"
+	)
+}
+```
+For more info for lighttpd conf, see links:
+
+http://redmine.lighttpd.net/projects/1/wiki/Docs_Configuration
+
+http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_ConfigurationOptions
+
+
+
