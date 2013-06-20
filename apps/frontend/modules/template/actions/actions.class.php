@@ -267,9 +267,9 @@ class templateActions extends MyActions
         return false;
       }
       
-      if (!preg_match('/^(([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+(([a-zA-Z]{2,6})|(%DOMAIN%))|(%DOMAIN%))$/',$data['name']))
+      if (!preg_match('/^(([a-zA-Z0-9_]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+(([a-zA-Z]{2,6})|(%DOMAIN%))|(%DOMAIN%))$/',$data['name']))
       {
-        $this->getRequest()->setError('record',"Row $i: invalid name (only letters, digits and hyphen allowed).");
+        $this->getRequest()->setError('record',"Row $i: invalid name (only letters, digits, underscore and hyphen allowed).");
         return false;
       }
       

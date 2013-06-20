@@ -289,7 +289,7 @@ class domainActions extends MyActions
           return false;
         }
         
-        if (!preg_match('/^([a-zA-Z0-9\*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/',$data['name']) || strlen($data['name']) > 253)
+        if (!preg_match('/^([a-zA-Z0-9_\*]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/',$data['name']) || strlen($data['name']) > 253)
         {
           $this->getRequest()->setError('record',"Row $i: invalid name (only letters, digits, underscore and hyphen allowed).");
           return false;
