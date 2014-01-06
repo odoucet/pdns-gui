@@ -159,6 +159,9 @@ function TemplateWindow()
   });
   
   win.show();
+  win.addListener('resize',function(win,width,height){
+    Tabs.items.items[0].items.items[1].items.items[0].setHeight(height-170);
+  });
 }
 
 function emptyTemplate(name)
