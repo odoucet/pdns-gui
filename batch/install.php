@@ -149,7 +149,7 @@ function str_replace_in_file($search,$replace,$file)
   
   $count = 0;
   
-  $content = preg_replace($search,$replace,$content,-1,&$count);
+  $content = preg_replace($search,$replace,$content,-1,$count);
   
   if (!$count)
   {
