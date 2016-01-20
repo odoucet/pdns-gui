@@ -51,6 +51,10 @@ class MyTools
     foreach (AuditPeer::doSelect($c) as $audit)
     {
       $domain = DomainPeer::retrieveByPK($audit->getDomainId());
+
+      if (!is_object($domain)) {
+        return "Unable to retrieve DomainPeer with PK #".$audit->getDomainId();
+      }
       
       $commited[] = $domain->getName();
       
